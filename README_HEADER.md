@@ -1,0 +1,1 @@
+The `powerbi` bundle includes a cluster, perf_test, and Power BI reports (pbix files). The reports query data from Geode/GemFire using the REST API which in turn invokes `addon.QueryFunction` for joining colocated data.
