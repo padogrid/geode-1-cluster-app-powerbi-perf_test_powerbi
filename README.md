@@ -30,9 +30,7 @@ The bundle installs the `powerbi` cluster which can be started as follows:
 switch_cluster powerbi
 
 # Add a locator and two (2) members to the cluster
-add_locator
-add_member
-add_member
+add_locator; add_member; add_member
 
 # Start the cluster
 start_cluster
@@ -40,7 +38,7 @@ start_cluster
 
 ## Running `perf_test_test` App
 
-The bundle includes the `perf_test_powerbi` app that included the preconfigured `etc/group-factory.properties` for ingesting mock customer and order objects into the `powerbi` cluster that you started from the previous section.
+The bundle includes the `perf_test_powerbi` app with the preconfigured `etc/group-factory.properties` file for ingesting mock `Customer` and `Order` objects into the `powerbi` cluster which you started from the previous section.
 
 Run the `test_group` command to ingest the data as follows:
 
