@@ -137,7 +137,7 @@ curl -X GET "http://localhost:7080/geode/v1/queries/adhoc?q=select%20*%20from%20
 
 ## Power BI Desktop
 
-After loading the `.pbix` files, click on the Home/Refresh icon in the tool bar. Since the query results for both `.pbix` files are same, they should show the exact same *Freight Costs by Date* pie charts and *Customers by State* maps as shown below.
+After loading the `.pbix` files, click on the *Home/Refresh* icon in the tool bar. Since the query results for both `.pbix` files are same, they should show the exact same *Freight Costs by Date* pie charts and *Customers by State* maps as shown below.
 
 ### Freight Costs by Date
 ![Power BI Pie Chart](/images/pbi-pie.png)
