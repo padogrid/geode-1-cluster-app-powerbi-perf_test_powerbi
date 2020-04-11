@@ -13,11 +13,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.geode.addon</groupId>
-	<version>0.9.0-SNAPSHOT</version>
-	<artifactId>geode-addon-perf_test</artifactId>
+	<groupId>padogrid.addon</groupId>
+	<version>1.0.0</version>
+	<artifactId>geode-addon-perf_test_powerbi</artifactId>
 	<packaging>pom</packaging>
-	<name>geode-addon-perf_test</name>
+	<name>geode-addon-perf_test_powerbi</name>
 	<url>http://maven.apache.org</url>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
