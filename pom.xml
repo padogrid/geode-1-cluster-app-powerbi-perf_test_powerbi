@@ -6,7 +6,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>padogrid.addon</groupId>
-	<artifactId>geode-1-app-perf_test_powerbi-cluster-powerbi</artifactId>
+	<artifactId>bundle-geode-1-app-perf_test_powerbi-cluster-powerbi</artifactId>
 	<packaging>pom</packaging>
         <name>${project.artifactId}</name>
 	<version>1.0.0</version>
