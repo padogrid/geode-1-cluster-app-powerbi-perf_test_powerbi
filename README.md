@@ -36,7 +36,7 @@ add_locator; add_member; add_member
 start_cluster
 ```
 
-## Running `perf_test_test` App
+## Running `perf_test_powerbi` App
 
 The bundle includes the `perf_test_powerbi` app with the preconfigured `etc/group-factory.properties` file for ingesting mock `Customer` and `Order` objects into the `powerbi` cluster which you started from the previous section.
 
