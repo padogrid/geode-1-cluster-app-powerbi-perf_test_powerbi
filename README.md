@@ -4,13 +4,13 @@ This bundle contains a Microsoft Power BI example that interfaces Power BI with 
 
 This article can be viewed in your browser by running the following:
 
-```console
+```bash
 show_bundle bundle-geode-1-app-perf_test_powerbi-cluster-powerbi
 ```
 
 ## Installing Bundle
 
-```console
+```bash
 install_bundle -download bundle-geode-1-app-perf_test_powerbi-cluster-powerbi
 ```
 
@@ -18,14 +18,14 @@ install_bundle -download bundle-geode-1-app-perf_test_powerbi-cluster-powerbi
 
 In this use case, we integrate Microsoft Power BI with Geode/GemFire using the REST API to invoke the `QueryFunction` plugin included in the `geode-addon` distribution. We join co-located regions in our queries via the `QueryFunction` plugin and perform visual analytics from Power BI.
 
-![Power BI Data Flow Diagram](/images/powerbi.png)
+![Power BI Data Flow Diagram](images/powerbi.png)
 
 
 ## Running Cluster
 
 The bundle installs the `powerbi` cluster which can be started as follows:
 
-```console
+```bash
 # Switch into the powerbi cluster
 switch_cluster powerbi
 
@@ -42,7 +42,7 @@ The bundle includes the `perf_test_powerbi` app with the preconfigured `etc/grou
 
 Run the `test_group` command to ingest the data as follows:
 
-```console
+```bash
 cd_app perf_test_powerbi; cd bin_sh
 
 # First, built the app
@@ -61,7 +61,7 @@ The above command ingests small sets of data as follows.
 
 You can increase the number of entries in the `etc/group-factory.properties` file by changing the group properties.
 
-```console
+```bash
 cd_app perf_test_powerbi
 vi etc/group-factory.properties
 ```
@@ -86,7 +86,7 @@ put2.factory.customerId.max=100
 
 The following `.pbix` files are included in the bundle. You can load them from the Power BI Desktop.
 
-```console
+```bash
 cd_app perf_test_powerbi
 tree etc/powerbi/
 etc/powerbi/
@@ -106,7 +106,7 @@ To join Geode/GemFire regions, the regions must be colocated. The `powerbi` clus
 
 **CURL:**
 
-```console
+```bash
 curl -X POST "http://localhost:7080/geode/v1/functions/addon.QueryFunction?onRegion=%2Fnw%2Forders" \
      -H "accept: application/json" -H "Content-Type: application/json" \
      -d "[ { \"@type\": \"String\",\"@value\": \"select * from /nw/customers c, /nw/orders o where c.customerId=o.customerId limit 100\"}]"
@@ -125,7 +125,7 @@ The results of the queries are then merged into one (1) table using Power Query 
 
 **CURL:**
 
-```console
+```bash
 # customers
 curl -X GET "http://localhost:7080/geode/v1/queries/adhoc?q=select%20*%20from%20%2Fnw%2Fcustomers%20limit%20100" \
      -H "accept: application/json;charset=UTF-8"
@@ -140,14 +140,14 @@ curl -X GET "http://localhost:7080/geode/v1/queries/adhoc?q=select%20*%20from%20
 After loading the `.pbix` files, click on the *Home/Refresh* icon in the tool bar. Since the query results for both `.pbix` files are same, they should show the exact same *Freight Costs by Date* pie charts and *Customers by State* maps as shown below.
 
 ### Freight Costs by Date
-![Power BI Pie Chart](/images/pbi-pie.png)
+![Power BI Pie Chart](images/pbi-pie.png)
 
 ### Customers by State
-![Power BI Map](/images/pbi-map.png)
+![Power BI Map](images/pbi-map.png)
 
 ## Tearing Down
 
-```console
+```bash
 stop_cluster -all
 ```
 
