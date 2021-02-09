@@ -156,6 +156,8 @@ curl -X GET "http://localhost:7080/geode/v1/queries/adhoc?q=select%20*%20from%20
 
 **Power Query M:**
 
+customers:
+
 ```basic
 let
     Source = Json.Document(Web.Contents("http://localhost:7080/geode/v1/queries/adhoc?q=select * from /nw/customers")),
@@ -163,6 +165,22 @@ let
     #"Expanded Column1" = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"customerId", "companyName", "contactName", "contactTitle", "address", "city", "region", "postalCode", "country", "phone", "fax"}, {"customerId", "companyName", "contactName", "contactTitle", "address", "city", "region", "postalCode", "country", "phone", "fax"})
 in
     #"Expanded Column1"
+```
+
+orders:
+
+```basic
+let
+    Source = Json.Document(Web.Contents("http://padomac:7080/geode/v1/queries/adhoc?q=select * from /nw/orders")),
+    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+    Table = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"orderId", "customerId", "employeeId", "orderDate", "requiredDate", "shippedDate", "shipVia", "freight", "shipName", "shipAddress", "shipCity", "shipRegion", "shipPostalCode", "shipCountry"}, {"o.orderId", "o.customerId", "o.employeeId", "o.orderDate", "o.requiredDate", "o.shippedDate", "o.shipVia", "o.freight", "o.shipName", "o.shipAddress", "o.shipCity", "o.shipRegion", "o.shipPostalCode", "o.shipCountry"}),
+    #"Changed Type1" = Table.TransformColumnTypes(Table,{{"o.shipVia", type number}, {"o.orderDate", type date}, {"o.requiredDate", type date}, {"o.shippedDate", type date}}),
+    #"Changed Type" = Table.TransformColumnTypes(#"Changed Type1",{{"o.requiredDate", type date}, {"o.orderDate", type date}, {"o.shippedDate", type date}, {"o.freight", type number}}),
+    #"Rounded Off" = Table.TransformColumns(#"Changed Type",{{"o.freight", each Number.Round(_, 2), type number}}),
+    #"Merged Queries" = Table.NestedJoin(#"Rounded Off", {"o.customerId"}, customers, {"customerId"}, "customers", JoinKind.LeftOuter),
+    #"Expanded customers" = Table.ExpandTableColumn(#"Merged Queries", "customers", {"customerId", "companyName", "contactName", "contactTitle", "address", "city", "region", "postalCode", "country", "phone", "fax"}, {"c.customerId", "c.companyName", "c.contactName", "c.contactTitle", "c.address", "c.city", "c.region", "c.postalCode", "c.country", "c.phone", "c.fax"})
+in
+    #"Expanded customers"
 ```
 
 ## Power BI Desktop
