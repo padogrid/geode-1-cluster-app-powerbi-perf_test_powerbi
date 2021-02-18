@@ -233,7 +233,7 @@ stop_cluster -all
 start_cluster
 ```
 
-You must now replace `localhost` with the cluster host name or IP as in the data source URLs from PowerBI. This is done by selecting the **Transform data/Transform data** pulldown menu item to open the Pwoer Query Editor and select the **Home/Advanced Editor** menu button from there. 
+You must now replace `localhost` with the cluster host name or IP as in the data source URLs from PowerBI. This is done by selecting the **Transform data/Transform data** pulldown menu item to open the Power Query Editor and select the **Home/Advanced Editor** menu button from there. 
 
 ### Freight Costs by Date
 
