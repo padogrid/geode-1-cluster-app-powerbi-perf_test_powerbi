@@ -89,6 +89,11 @@ The following `.pbix` files are included in the bundle. You can load them from t
 ```bash
 cd_app perf_test_powerbi
 tree etc/powerbi/
+```
+
+**Output:**
+
+```console
 etc/powerbi/
 ├── customer-orders.pbix
 └── nw.pbix
