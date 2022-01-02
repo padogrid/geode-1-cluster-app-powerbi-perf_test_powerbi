@@ -248,7 +248,7 @@ You must now replace `localhost` with the cluster host name or IP as in the data
 
 ![Power BI Map](images/pbi-map.png)
 
-## Tearing Down
+## Teardown
 
 ```bash
 stop_cluster -all
