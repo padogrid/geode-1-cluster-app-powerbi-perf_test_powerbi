@@ -176,7 +176,7 @@ orders:
 
 ```basic
 let
-    Source = Json.Document(Web.Contents("http://padomac:7080/geode/v1/queries/adhoc?q=select * from /nw/orders")),
+    Source = Json.Document(Web.Contents("http://localhost:7080/geode/v1/queries/adhoc?q=select * from /nw/orders")),
     #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
     Table = Table.ExpandRecordColumn(#"Converted to Table", "Column1", {"orderId", "customerId", "employeeId", "orderDate", "requiredDate", "shippedDate", "shipVia", "freight", "shipName", "shipAddress", "shipCity", "shipRegion", "shipPostalCode", "shipCountry"}, {"o.orderId", "o.customerId", "o.employeeId", "o.orderDate", "o.requiredDate", "o.shippedDate", "o.shipVia", "o.freight", "o.shipName", "o.shipAddress", "o.shipCity", "o.shipRegion", "o.shipPostalCode", "o.shipCountry"}),
     #"Changed Type1" = Table.TransformColumnTypes(Table,{{"o.shipVia", type number}, {"o.orderDate", type date}, {"o.requiredDate", type date}, {"o.shippedDate", type date}}),
