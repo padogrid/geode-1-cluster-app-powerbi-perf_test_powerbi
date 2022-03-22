@@ -32,6 +32,7 @@ http://geode.apache.org/schema/cache/cache-1.0.xsd"
 			</partition-resolver>
 		</partition-attributes>
 	</region-attributes> 
+
 	<!-- PBM example regions accessed by the perf_test app's
 	     DataIngestionTest (bin_sh/test_ingestion) and 
 	     TransactionTest (bin_sh/test_tx). -->	
@@ -82,6 +83,9 @@ http://geode.apache.org/schema/cache/cache-1.0.xsd"
 	
 	<!-- EligFunction invoked by TransationTest (bin_sh/test_tx). -->
 	<function-service>
+       <function>
+            <class-name>org.apache.geode.addon.function.ClearFunction</class-name>
+        </function>
 		<function>
 			<class-name>org.apache.geode.addon.function.QueryFunction</class-name>
 		</function>
