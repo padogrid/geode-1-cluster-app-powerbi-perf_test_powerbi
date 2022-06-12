@@ -10,6 +10,8 @@ show_bundle bundle-geode-1-app-perf_test_powerbi-cluster-powerbi
 
 ## Installing Bundle
 
+![PadoGrid](https://github.com/padogrid/padogrid/raw/develop/images/padogrid-3d-16x16.png) [*Driven by PadoGrid*](https://github.com/padogrid)
+
 ```bash
 install_bundle -download bundle-geode-1-app-perf_test_powerbi-cluster-powerbi
 ```
