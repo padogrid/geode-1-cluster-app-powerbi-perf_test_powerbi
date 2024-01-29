@@ -18,6 +18,10 @@ buildNumber.properties
 # Jupyter
 .ipynb_checkpoints
 
+# VS Code
+.vscode
+workspace.code-workspace
+
 # PadoGrid workspace
 /.addonenv.sh
 /initenv.sh
