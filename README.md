@@ -37,7 +37,7 @@ The bundle installs the `powerbi` cluster which can be started as follows:
 switch_cluster powerbi
 
 # Add a locator and two (2) members to the cluster
-add_locator; add_member; add_member
+add_locator; add_member -count 2
 
 # Start the cluster
 start_cluster
@@ -50,7 +50,7 @@ The bundle includes the `perf_test_powerbi` app with the preconfigured `etc/grou
 Run the `test_group` command to ingest the data as follows:
 
 ```bash
-cd_app perf_test_powerbi; cd bin_sh
+cd_app perf_test_powerbi/bin_sh
 
 # First, built the app
 ./build_app
