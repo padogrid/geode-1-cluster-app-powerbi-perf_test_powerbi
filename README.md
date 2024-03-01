@@ -3,7 +3,7 @@
 ---
 
 <!-- Platforms -->
-[![Host OS](https://github.com/padogrid/padogrid/wiki/images/padogrid-host-os.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Host-OS) [![VM](https://github.com/padogrid/padogrid/wiki/images/padogrid-vm.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-VM) [![Docker](https://github.com/padogrid/padogrid/wiki/images/padogrid-docker.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Docker) [![Kubernetes](https://github.com/padogrid/padogrid/wiki/images/padogrid-kubernetes.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Kubernetes)
+[![PadoGrid 1.x](https://github.com/padogrid/padogrid/wiki/images/padogrid-padogrid-1.x.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-PadoGrid-1.x) [![Host OS](https://github.com/padogrid/padogrid/wiki/images/padogrid-host-os.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Host-OS) [![VM](https://github.com/padogrid/padogrid/wiki/images/padogrid-vm.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-VM) [![Docker](https://github.com/padogrid/padogrid/wiki/images/padogrid-docker.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Docker) [![Kubernetes](https://github.com/padogrid/padogrid/wiki/images/padogrid-kubernetes.drawio.svg)](https://github.com/padogrid/padogrid/wiki/Platform-Kubernetes)
 
 # Bundle: Power BI
 
@@ -27,6 +27,30 @@ In this use case, we integrate Microsoft Power BI with Geode/GemFire using the R
 
 ![Power BI Data Flow Diagram](images/powerbi.png)
 
+## Required Software
+
+- Maven 3.x
+- Geode 1.x or GemFire 9.x/10.x
+
+## Configuring Bundle Environment
+
+Make sure you have all the required products installed.
+
+```bash
+# To use Geode:
+install_padogrid -product geode
+update_padogrid -product geode
+
+# To use GemFire:
+# GemFire must be downloaded manually from the their website.
+# The install_padogrid usage provides the download link.
+install_padogrid -?
+# Upon download, install it in $PADOGRID_ENV_BASE_PATH/products directory.
+# For example, the following installs GemFire 10.1.0.
+tar -C $PADOGRID_ENV_BASE_PATH/products -xzf ~/Downloads/vmware-gemfire-10.1.0.tgz
+# Update the workspace environment with the installed GemFire version.
+update_padogrid -product gemfire
+```
 
 ## Running Cluster
 
